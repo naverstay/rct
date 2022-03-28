@@ -1,59 +1,82 @@
 //
 // Forms
 // --------------------------------------------------
-form {
-    padding: 0 1rem;
+
+.input {
+  display: block;
+  background: #F8F8F8;
+  border-radius: 5px;
+  border: 0;
+
+  &-size_50 {
+    font-size: 16px;
+    height: 50px;
+    padding: 0 24px;
+  }
+
+  &.not-empty,
+  &:focus {
+
+
+
+    ~ label {
+      margin-top: -12px;
+    }
+  }
 }
 
-legend {
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin-bottom: $line-height-computed;
-    font-size: 1.5rem;
-    font-family: $headings-font-family;
-    line-height: inherit;
-    color: $text-color;
-    border: 0;
-}
+.form {
+  &-cell {
+    position: relative;
 
-input,
-textarea,
-select {
-    border: 1px solid rgb(204, 204, 204);
-    width: calc(100% - 2px - 1rem);
-    min-height: 3rem;
-    font-family: $font-family-base;
-    color: $text-color;
-    font-size: 1.2rem;
-    border-radius: 0;
-    padding: 0 1rem;
+    &__icon {
+      left: 22px;
+    }
+
+    &__label {
+      left: 54px;
+      transition: margin .3s, font-size .3s;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: -0.35px;
+      color: #111;
+      opacity: 0.5;
+    }
+
+    &__icon,
+    &__label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      + .input {
+        padding-left: 54px;
+      }
+    }
+  }
 }
 
 ::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: #ccc;
-    font-size: 1.2rem;
-    font-family: $font-family-base;
+  /* Chrome/Opera/Safari */
+  color: $gray_placeholder;
+  font-family: $font-family-base;
 }
 
 ::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #ccc;
-    font-size: 1.2rem;
-    font-family: $font-family-base;
+  /* Firefox 19+ */
+  color: $gray_placeholder;
+  font-family: $font-family-base;
 }
 
 :-ms-input-placeholder {
-    /* IE 10+ */
-    color: #ccc;
-    font-size: 1.2rem;
-    font-family: $font-family-base;
+  /* IE 10+ */
+  color: $gray_placeholder;
+  font-family: $font-family-base;
 }
 
 :-moz-placeholder {
-    /* Firefox 18- */
-    color: #ccc;
-    font-size: 1.2rem;
-    font-family: $font-family-base;
+  /* Firefox 18- */
+  color: $gray_placeholder;
+  font-family: $font-family-base;
 }

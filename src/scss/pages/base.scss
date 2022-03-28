@@ -1,32 +1,64 @@
 //
 // Base
 // --------------------------------------------------
+
 body {
-    font-family: $font-family-base;
-    font-size: $font-size-base;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+.page {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.waypoint {
+  min-height: 2000px;
+  padding-top: 96px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 30px;
+  max-width: 100%;
+  width: $screen-xs;
+
+  @include respond-to-min($screen-sm) {
+    width: $screen-sm;
+  }
+
+  @include respond-to-min($screen-lg) {
+    width: $screen-lg;
+    padding: 0 15px;
+  }
 }
 
 /* width */
 
 ::-webkit-scrollbar {
-    width: 0.5rem;
+  width: 0.5rem;
 }
 
 /* Track */
 
 ::-webkit-scrollbar-track {
-    background: #a4a4a4;
+  background: #a4a4a4;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    background: #231f20;
-    transition: 0.2s;
+  background: #231f20;
+  transition: 0.2s;
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #161616;
+  background: #161616;
 }

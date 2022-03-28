@@ -1,4 +1,4 @@
-var webpack = require("webpack");
+const webpack = require("webpack");
 const path = require("path");
 const fs = require('fs');
 
@@ -29,7 +29,7 @@ function generateHtmlPlugins (templateDir) {
       })
     })
   }
-  
+
   // We will call the function like this:
   const htmlPlugins = generateHtmlPlugins('./src/pages')
 
@@ -57,6 +57,7 @@ module.exports = {
             },
             {
                 test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                include: /fonts/,
                 use: [{
                     loader: 'file-loader',
                     options: {
@@ -71,7 +72,7 @@ module.exports = {
                 use: [{
                         loader: "url-loader",
                         options: {
-                            name: "./images/[name].[ext]",
+                            name: "./images/**/[name].[ext]",
                             limit: 5000
                         }
                     },
@@ -120,8 +121,12 @@ module.exports = {
             filename: "css/main.[contenthash:8].css"
           }),
         new CopyWebpackPlugin([{
-            from: 'src/images',
-            to: 'images'
+            from: 'src/images/',
+            to: 'images/'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'src/fonts/',
+            to: 'fonts/'
         }]),
         new webpack.ProvidePlugin({
             $: "jquery",

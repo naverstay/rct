@@ -10,7 +10,7 @@
  */
 
 html {
-  line-height: 1.15; /* 1 */
+  line-height: 1.2; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
   font-size: 62.5%;
@@ -250,7 +250,7 @@ select,
 textarea {
   font-family: sans-serif; /* 1 */
   font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
+  line-height: 1.2; /* 1 */
   margin: 0; /* 2 */
 }
 
@@ -441,6 +441,10 @@ template {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Hidden
    ========================================================================== */
 
@@ -448,6 +452,7 @@ template {
  * Add the correct display in IE 10-.
  */
 
+.hide,
 [hidden] {
   display: none;
 }

@@ -1,0 +1,15 @@
+//
+// Mixins
+// --------------------------------------------------
+
+@mixin respond-to-max($custom) {
+    @media only screen and (max-width: $custom - 1) {
+        @content;
+    }
+}
+
+@mixin respond-to-min($custom) {
+    @media only screen and (min-width: $custom) {
+        @content;
+    }
+}

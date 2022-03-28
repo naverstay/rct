@@ -1,11 +1,2 @@
-i.icon {
-    display: inline-block;
-    vertical-align: middle;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.icon-blog {
-    display: block;
-}
+@import '../../icons/variables';
+@import '../../icons/style';
