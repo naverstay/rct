@@ -5,6 +5,7 @@
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
+  overflow-x: hidden;
 }
 
 .page {
@@ -14,12 +15,13 @@ body {
 }
 
 .content {
+  padding-top: 96px;
   flex: 1 0 auto;
 }
 
 .waypoint {
-  min-height: 2000px;
-  padding-top: 96px;
+  //height: 2000px;
+  //border: 1px solid #000;
 }
 
 .container {

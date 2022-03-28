@@ -9,14 +9,23 @@ header {
   left: 0;
   z-index: 10;
   background: #fff;
+
+  .__scroll & {
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+  }
 }
 
 .header {
+  transition: padding .2s;
   padding: 20px 0;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
+
+  .__scroll & {
+    padding: 3px 0;
+  }
 
   @include respond-to-min($screen-lg) {
 

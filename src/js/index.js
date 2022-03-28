@@ -1,10 +1,19 @@
 import $ from 'jquery';
 import 'waypoints/lib/noframework.waypoints.min.js';
+import AWN from 'awesome-notifications/dist';
+
+// Set global options
+let globalOptions = {
+  durations: {
+    global: 100000
+  }
+}
+// Initialize instance of AWN
+let notifier = new AWN(globalOptions)
 
 function getScrollTop() {
   return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 }
-
 
 let updateNav = (id, prev) => {
   let activeLink = $('.nav-link[href="#' + id + '"]')
@@ -39,22 +48,44 @@ let updateNav = (id, prev) => {
           checkWindowScroll()
         };
 
-        $('.nav-link').on('click', (e) => {
-          e.preventDefault()
-          let target = $($(e.target).attr('href'))
+        $('.nav-link').each(function (ind, el) {
+          $(this).on('click', (e) => {
+            e.preventDefault()
+            let target = $($(e.target).attr('href'));
 
-          if (target.length) {
-            $([document.documentElement, document.body]).animate({
-              scrollTop: target.offset().top
-            }, 1000);
-          }
+            if (target.length) {
+              $([document.documentElement, document.body]).animate({
+                scrollTop: target.offset().top - (ind ? 60 : 96)
+              }, 1000);
+            }
+
+            return false
+          });
+
+        });
+
+        $('#hero-discuss').on('submit', (e) => {
+          e.preventDefault()
+
+          // Set custom options for next call if needed, it will override globals
+          let nextCallOptions = {
+            durations: {
+              success: 0
+            },
+            labels: {
+              success: "Отправлено"
+            }
+          };
+          // Call one of available functions
+          notifier.success('Заявка была успешно отправлена. Мы ответим вам на указанный Email адрес в течение одного рабочего дня.', nextCallOptions)
 
           return false
-        })
+        });
 
         $('.waypoint').each(function (ind, el) {
           let waypoint = new Waypoint({
             element: el,
+            offset: 96,
             handler: function (dir) {
               updateNav(el.id, dir === 'up' && ind > 0)
             }
@@ -62,9 +93,7 @@ let updateNav = (id, prev) => {
         });
       },
       finalize: function () {
-        $('html').removeClass('no-js')
-
-        console.log("[Ok!]")
+        $('html').removeClass('no-js');
       }
     }
   };

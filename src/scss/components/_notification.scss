@@ -1,0 +1,56 @@
+//
+// Notifications
+// --------------------------------------------------
+
+@import '../../node_modules/awesome-notifications/dist/style.css';
+
+.awn-toast {
+  &.awn-toast-success {
+    background: #6ac75a;
+
+    .awn-toast-wrapper {
+      border-color: #6ac75a;
+    }
+
+    .awn-toast-label {
+      color: #fff;
+      font-family: 'Craftwork Grotesk', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 25px;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      position: relative;
+
+      &::after {
+        @extend %pseudo_icon;
+        content: $icon-close;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+
+    .awn-toast-content {
+      color: #fff;
+      margin-top: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.04em;
+    }
+  }
+}
+
+.awn-toast {
+  @include respond-to-min($screen-sm) {
+    width: 470px;
+  }
+}
+
+.awn-toast-wrapper {
+  padding: 24px;
+}
