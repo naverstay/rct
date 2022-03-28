@@ -6,6 +6,18 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   overflow-x: hidden;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    content: 'mobile';
+
+    @include respond-to-min($screen-sm) {
+      content: 'desktop';
+    }
+  }
 }
 
 .page {

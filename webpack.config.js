@@ -72,7 +72,7 @@ module.exports = {
                 use: [{
                         loader: "url-loader",
                         options: {
-                            name: "./images/**/[name].[ext]",
+                            name: "./images/[name].[ext]",
                             limit: 5000
                         }
                     },
@@ -112,6 +112,17 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                type: 'javascript/auto',
+                test: /\.json$/,
+                include: /lottie/,
+                loader: 'lottie-web-webpack-loader',
+                //options: {
+                //    assets: {
+                //        scale: 0.5 // proportional resizing multiplier
+                //    }
+                //}
             }
         ]
     },
@@ -123,6 +134,10 @@ module.exports = {
         new CopyWebpackPlugin([{
             from: 'src/images/',
             to: 'images/'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'src/lottie/',
+            to: 'lottie/'
         }]),
         new CopyWebpackPlugin([{
             from: 'src/fonts/',

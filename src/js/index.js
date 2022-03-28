@@ -1,6 +1,15 @@
 import $ from 'jquery';
 import 'waypoints/lib/noframework.waypoints.min.js';
+import Swiper from 'swiper';
+import lottie from 'lottie-web';
+//import animationData from '../../src/lottie/hero.json';
 import AWN from 'awesome-notifications/dist';
+
+let serviceSwiper;
+
+const isMobile = function () {
+  return getComputedStyle(document.body, ':before').getPropertyValue('content') === '\"mobile\"';
+}
 
 // Set global options
 let globalOptions = {
@@ -91,6 +100,56 @@ let updateNav = (id, prev) => {
             }
           })
         });
+
+        const breakpoint = window.matchMedia('(min-width:834px)');
+
+        const breakpointChecker = function (mobile) {
+          if (mobile) {
+            serviceSwiper = new Swiper('.swiper', {
+              // Optional parameters
+              loop: true
+            });
+          } else {
+            if (serviceSwiper) {
+              serviceSwiper.destroy();
+            }
+          }
+
+          return false;
+        };
+
+        breakpoint.addEventListener("change", (e) => {
+          breakpointChecker(!e.matches);
+        });
+
+        breakpointChecker(isMobile());
+
+        let heroAnimationElement = $('#hero_animation_element');
+
+        //console.log('animationData', heroAnimationElement, animationData);
+
+        if (heroAnimationElement.length) {
+          //const heroAnimation = lottie.loadAnimation({
+          //  container: heroAnimationElement[0],
+          //  renderer: 'svg',
+          //  loop: true,
+          //  autoplay: true,
+          //  animationData
+          //});
+
+          const heroAnimation = lottie.loadAnimation({
+            container: heroAnimationElement[0], // the dom element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../lottie/hero.json' // the path to the animation json
+          });
+
+          console.log('heroAnimation', heroAnimation);
+
+          heroAnimation.goToAndPlay(0, true);
+
+        }
       },
       finalize: function () {
         $('html').removeClass('no-js');

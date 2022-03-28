@@ -11,17 +11,13 @@
   text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
-  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   white-space: nowrap;
   transform-origin: bottom;
   border-radius: 6px;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
-  /* identical to box height, or 133% */
-
   letter-spacing: -0.04em;
-
 
   &-size_50 {
     height: 50px;
@@ -48,6 +44,75 @@
 
     &.loading {
       background: #ff7953;
+    }
+  }
+
+  &-blue {
+    color: #fff;
+    background: #783bff;
+
+    &:hover {
+      background: #8148ff;
+    }
+
+    &:active {
+      background: #6e2dff;
+    }
+
+    &:focus,
+    &.focus {
+      background: #8148ff;
+      box-shadow: 0 0 0 4px #9bcffd;
+    }
+
+    &.loading {
+      background: #783bff;
+    }
+  }
+
+  &-green {
+    color: #fff;
+    background: #6ac75a;
+
+    &:hover {
+      background: #77cd68;
+    }
+
+    &:active {
+      background: #63c253;
+    }
+
+    &:focus,
+    &.focus {
+      background: #77cd68;
+      box-shadow: 0 0 0 4px #9bcffd;
+    }
+
+    &.loading {
+      background: #6ac75a;
+    }
+  }
+
+  &-white {
+    color: #111;
+    background: #f8f8f8;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+
+    &:active {
+      background: #f1f1f1;
+    }
+
+    &:focus,
+    &.focus {
+      background: #f4f4f4;
+      box-shadow: 0 0 0 4px #9bcffd;
+    }
+
+    &.loading {
+      background: #f8f8f8;
     }
   }
 
