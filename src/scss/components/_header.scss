@@ -23,7 +23,6 @@ header {
   }
 }
 
-
 .logo {
   font-family: 'Craftwork Sans', sans-serif;
   font-weight: bold;
@@ -34,6 +33,7 @@ header {
   display: flex;
   align-items: center;
   transition: color .3s;
+  margin-right: auto;
 
   &-text {
     position: relative;
@@ -106,6 +106,7 @@ header {
       li {
         transition: opacity .3s;
         padding: 0 16px;
+        margin-left: 1px;
 
         &.__active {
           opacity: .5;
@@ -115,31 +116,32 @@ header {
   }
 }
 
-
 .lang {
   &-block {
     position: relative;
     height: 54px;
-    margin: -10px 0;
+    margin: -10px 0 -10px 30px;
 
     &:hover {
 
       .lang-dropdown {
         background: #f8f8f8;
+        pointer-events: all;
       }
 
       .lang-label {
-        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
       }
     }
   }
 
   &-dropdown {
-    transition: background .3s;
     border-radius: 8px;
     display: flex;
     flex-flow: column nowrap;
     margin-left: auto;
+    pointer-events: none;
   }
 
   &-icon {
@@ -152,7 +154,8 @@ header {
 
   &-label {
     cursor: pointer;
-    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.04em;
@@ -170,7 +173,7 @@ header {
     }
 
     &.__active {
-      visibility: visible;
+      opacity: 1;
       order: -1;
       font-weight: 600;
     }

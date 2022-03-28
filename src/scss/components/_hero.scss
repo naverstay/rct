@@ -1,0 +1,108 @@
+//
+// Hero
+// --------------------------------------------------
+
+.hero {
+  padding: 20px 0;
+
+  &-underline {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      height: 30px;
+      background: url(../images/public/underline.svg) no-repeat 0 0;
+      background-size: contain;
+    }
+  }
+
+  &-image {
+
+    @include respond-to-min($screen-sm) {
+      padding: 0 30px;
+    }
+  }
+
+  &-title {
+    font-family: 'Craftwork Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+    color: #111;
+    margin-bottom: 30px;
+
+    @include respond-to-min($screen-sm) {
+      font-size: 36px;
+      line-height: 43px;
+    }
+
+    @include respond-to-min($screen-lg) {
+      font-size: 54px;
+      line-height: 64px;
+    }
+  }
+
+  &-tip {
+    max-width: 470px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #111;
+    margin-bottom: 46px;
+
+    @include respond-to-min($screen-lg) {
+      font-size: 21px;
+      line-height: 32px;
+    }
+  }
+
+  &-form {
+    .btn,
+    .input {
+      width: 100%;
+    }
+
+    @include respond-to-min($screen-lg) {
+      .form {
+        display: flex;
+        flex-flow: row nowrap;
+      }
+
+      .form-cell {
+        width: 233px;
+        padding-right: 10px;
+
+        &:first-child {
+          width: 304px;
+        }
+      }
+    }
+  }
+
+  &-content {
+
+
+    @include respond-to-min($screen-sm) {
+      width: 49%;
+      padding-top: 30px;
+    }
+
+  }
+
+  @include respond-to-min($screen-sm) {
+    padding: 40px 0;
+  }
+
+  @include respond-to-min($screen-lg) {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+  }
+}

@@ -15,32 +15,7 @@
 
     <main class="content">
         <div id="about" class="waypoint">
-            <div class="container">
-                <div class="hero">
-                    <div class="hero-title">Делаем сложные сайты <span class="hero-underline">качественно</span>, дорого
-                        и
-                        быстро
-                    </div>
-                    <div class="hero-tip">Команда компетентных профессионалов, которая не боится сложных задач,
-                        комплексных
-                        проектов и больших объёмов работ
-                    </div>
-                    <form action="" class="form">
-                        <div class="form-cell">
-                        <span class="form-cell__icon">
-                            <span class="icon icon-mail"></span>
-                        </span>
-                            <input id="hero-email" placeholder="Ваш Email адрес" class="input input-size_50">
-                            <!--                        <label class="form-cell__label" for="hero-email">Ваш Email адрес</label>-->
-                        </div>
-
-                        <div class="form-cell">
-                            <button class="btn btn-orange btn-size_50">Обсудить проект</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
+            <%= require('html-loader!../blocks/about.html') %>
         </div>
 
         <div id="service" class="waypoint">

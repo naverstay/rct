@@ -3,20 +3,34 @@
 // --------------------------------------------------
 
 .input {
+  font-family: $font-family-base;
   display: block;
-  background: #F8F8F8;
+  background: #f8f8f8;
   border-radius: 5px;
-  border: 0;
+  border: 1px solid transparent;
+  letter-spacing: -.025em;
 
   &-size_50 {
     font-size: 16px;
     height: 50px;
     padding: 0 24px;
+
+    &.__icon {
+      padding-left: 54px;
+    }
+  }
+
+  &:not(:placeholder-shown),
+  &:focus,
+  &:hover {
+
+    ~ .form-cell__icon {
+      color: #000;
+    }
   }
 
   &.not-empty,
   &:focus {
-
 
 
     ~ label {
@@ -30,7 +44,11 @@
     position: relative;
 
     &__icon {
+      pointer-events: none;
       left: 22px;
+      font-size: 22px;
+      color: rgba(0, 0, 0, .5);
+      transition: color .3s;
     }
 
     &__label {
@@ -49,10 +67,6 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-
-      + .input {
-        padding-left: 54px;
-      }
     }
   }
 }
