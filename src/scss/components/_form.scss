@@ -22,6 +22,10 @@
 
     @at-root textarea#{&} {
       height: 110px;
+      max-width: 100%;
+      min-width: 100%;
+      min-height: 50px;
+      max-height: 400px;
     }
   }
 

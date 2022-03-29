@@ -3,6 +3,8 @@
 // --------------------------------------------------
 @import '../../node_modules/swiper/swiper';
 
+$item_hover_time: .5s;
+
 .service {
   padding: 48px 0;
   position: relative;
@@ -27,6 +29,11 @@
     @extend %section_title;
     margin-bottom: 30px;
     letter-spacing: -.02em;
+
+    @include respond-to-min($screen-sm) {
+      letter-spacing: -.05em;
+    }
+
   }
 
   &-contact {
@@ -39,10 +46,14 @@
 
       @include respond-to-max($screen-sm) {
         margin-bottom: 16px;
+        font-size: 14px;
+        line-height: 21px;
       }
 
       @include respond-to-min($screen-sm) {
         margin-bottom: 12px;
+        font-size: 16px;
+        line-height: 21px;
       }
     }
 
@@ -55,12 +66,14 @@
     @include respond-to-min($screen-sm) {
       grid-column: 2;
       text-align: right;
+      margin-top: -5px;
     }
 
     @include respond-to-min($screen-lg) {
       display: flex;
       flex-flow: row nowrap;
       padding-top: 25px;
+      margin-top: 0;
 
       .form-cell {
         padding-left: 24px;
@@ -95,6 +108,7 @@
     padding: 35px 32px;
     height: 100%;
     text-align: left;
+    overflow: hidden;
 
     @include respond-to-min($screen-sm) {
       padding: 41px 20px;
@@ -105,6 +119,8 @@
     }
 
     &__icon {
+      z-index: 1;
+      position: relative;
       margin-bottom: 22px;
 
       img {
@@ -113,35 +129,21 @@
     }
 
     &__caption {
-      font-family: 'Craftwork Grotesk', sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 29px;
-      letter-spacing: -0.04em;
-      color: #111;
-      margin-bottom: 8px;
-
-      @include respond-to-min($screen-sm) {
-        font-size: 21px;
-        line-height: 25px;
-        margin-bottom: 12px;
-      }
-
-      @include respond-to-min($screen-lg) {
-        font-size: 32px;
-        line-height: 38px;
-        margin-bottom: 16px;
-      }
-
+      @extend %item_title;
+      transition: color $item_hover_time;
+      position: relative;
+      z-index: 1;
     }
 
     &__description {
+      transition: color $item_hover_time;
       font-size: 16px;
       line-height: 28px;
       letter-spacing: -0.04em;
       color: rgba(0, 0, 0, .5);
       margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
 
       @include respond-to-min($screen-sm) {
         font-size: 14px;
@@ -162,6 +164,27 @@
         height: 80px;
       }
     }
+
+    &:hover {
+      .service-btn {
+        &::before {
+          width: 100vw;
+          height: 100vw;
+        }
+      }
+
+      .service-btn__text {
+        display: block;
+      }
+
+      .service-btn__icon {
+        margin-left: 15px;
+      }
+
+      * {
+        color: #fff;
+      }
+    }
   }
 
   &-btn {
@@ -170,12 +193,40 @@
     align-items: center;
     justify-content: center;
     border-radius: 24px;
+    padding: 0 20px;
     height: 48px;
     min-width: 48px;
     font-size: 16px;
     color: #fff;
     background: #111;
     position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      border-radius: 100%;
+      background: inherit;
+      transition: width $item_hover_time, height $item_hover_time;
+    }
+
+    &__icon {
+      transition: margin-left $item_hover_time/2;
+    }
+
+    &__text {
+      white-space: nowrap;
+      display: none;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
 
     @include respond-to-min($screen-sm) {
       border-radius: 33px;
@@ -209,13 +260,14 @@
   @include respond-to-min($screen-sm) {
     padding: 72px 0;
     display: grid;
-    grid-template-columns: 7fr 4fr;
+    grid-template-columns: 8fr 4fr;
     grid-column-gap: 30px;
     grid-template-areas: 'title btn';
   }
 
   @include respond-to-min($screen-lg) {
     padding: 80px 30px 80px 0;
+    grid-template-columns: 7fr 4fr;
     grid-column-gap: 50px;
   }
 }

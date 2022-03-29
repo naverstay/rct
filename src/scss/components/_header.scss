@@ -27,9 +27,23 @@ header {
     margin: 0 -6px;
   }
 
+  @include respond-to-min($screen-sm) {
+    > .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
   @include respond-to-min($screen-lg) {
     .__scroll & {
       padding: 3px 0;
+    }
+
+    > .logo {
+      position: relative;
+      left: auto;
+      transform: none;
     }
   }
 }

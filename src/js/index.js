@@ -84,9 +84,13 @@ let updateNav = (id, prev) => {
           return false;
         });
 
-        $('.js-feedback-open').on('click', function () {
+        $('.js-service-item').on('click', function () {
+          let theme = $(this).attr('data-theme') || '';
           let feedback = $('.js-feedback-modal');
+
           if (feedback.length) {
+            feedback.find('#feedback-theme').attr('value', theme);
+
             let options = {
               replacements: {
                 modal: {

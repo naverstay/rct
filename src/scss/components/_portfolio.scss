@@ -63,26 +63,7 @@
     }
 
     &__caption {
-      font-family: 'Craftwork Grotesk', sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 29px;
-      letter-spacing: -0.04em;
-      color: #111;
-      margin-bottom: 8px;
-
-      @include respond-to-min($screen-sm) {
-        font-size: 21px;
-        line-height: 25px;
-        margin-bottom: 12px;
-      }
-
-      @include respond-to-min($screen-lg) {
-        font-size: 32px;
-        line-height: 38px;
-        margin-bottom: 16px;
-      }
+      @extend %item_title;
     }
 
     &__description {
