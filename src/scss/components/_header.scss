@@ -5,8 +5,8 @@
 header {
   position: fixed;
   top: 0;
-  right: 0;
   left: 0;
+  width: 100%;
   z-index: 10;
   background: #fff;
 
@@ -23,12 +23,14 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  .__scroll & {
-    padding: 3px 0;
+  @include respond-to-max($screen-lg) {
+    margin: 0 -6px;
   }
 
   @include respond-to-min($screen-lg) {
-
+    .__scroll & {
+      padding: 3px 0;
+    }
   }
 }
 
@@ -42,7 +44,10 @@ header {
   display: flex;
   align-items: center;
   transition: color .3s;
-  margin-right: auto;
+
+  @include respond-to-min($screen-lg) {
+    margin-right: auto;
+  }
 
   &-text {
     position: relative;
@@ -54,8 +59,8 @@ header {
     align-items: center;
     justify-content: center;
     color: #fff;
-    width: 56px;
-    height: 56px;
+    width: 3em;
+    height: 3em;
     margin: -10px 5px;
     position: relative;
 
@@ -67,8 +72,8 @@ header {
     &::before {
       content: '';
       background: #ff6d43;
-      width: 56px;
-      height: 56px;
+      width: 3em;
+      height: 3em;
       border-radius: 100%;
       position: absolute;
       top: 50%;
@@ -84,12 +89,11 @@ header {
 
     .logo-circle {
       &::before {
-        width: 200px;
-        height: 200px;
+        width: 11em;
+        height: 11em;
       }
     }
   }
-
 }
 
 .nav {
@@ -100,6 +104,68 @@ header {
     line-height: 26px;
     letter-spacing: -0.04em;
     color: #111;
+
+    @include respond-to-max($screen-lg) {
+      font-size: 21px;
+      line-height: 26px;
+      letter-spacing: -0.04em;
+      width: 100%;
+      padding: 10px;
+      display: block;
+    }
+
+    @include respond-to-max($screen-sm) {
+      padding: 22px 10px;
+    }
+  }
+
+  &-head {
+    .logo {
+      font-size: 24px;
+      line-height: 29px;
+      margin-right: 10px;
+
+      @include respond-to-min($screen-sm) {
+        font-size: 30px;
+        line-height: 36px;
+      }
+    }
+  }
+
+  &-foot {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    max-width: 664px;
+    margin: 0 auto;
+
+    .btn {
+      width: 100%;
+    }
+
+    &__copyright {
+      padding: 36px 0 30px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: -0.3px;
+      color: #111;
+      opacity: .5;
+
+      @include respond-to-min($screen-sm) {
+        padding: 64px 0 48px;
+      }
+    }
+
+    @include respond-to-max($screen-sm) {
+      width: 354px;
+      max-width: 100%;
+    }
+
+    @include respond-to-min($screen-lg) {
+      display: none;
+    }
   }
 
   &-list {
@@ -123,24 +189,98 @@ header {
       }
     }
   }
+
+  @include respond-to-max($screen-lg) {
+    transition: transform .3s;
+    transform: translateX(-100%);
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    z-index: 11;
+    background: #fff;
+    padding-top: 105px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    &-list {
+      text-align: center;
+      margin-bottom: auto;
+      padding: 35px 0;
+      width: 100%;
+
+      li {
+        margin-top: 28px;
+      }
+    }
+
+    .__open-menu & {
+      transform: translateX(0);
+    }
+  }
+
+  @include respond-to-max($screen-sm) {
+    &-list {
+
+      li {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.burger {
+  @include burger();
+  width: 36px;
+  height: 36px;
+  margin-right: 20px;
+
+  .__open-menu & {
+    @include burger_open();
+
+    span {
+      &:nth-of-type(1),
+      &:nth-of-type(3) {
+        margin-left: 2px;
+      }
+    }
+  }
+
+  @include respond-to-min($screen-lg) {
+    display: none;
+  }
 }
 
 .lang {
   &-block {
     position: relative;
     height: 54px;
-    margin: -10px 0 -10px 30px;
+    margin: -10px -24px -10px 10px;
+
+    @include respond-to-min($screen-sm) {
+      margin-left: 10px;
+    }
+
+    @include respond-to-min($screen-lg) {
+      margin-right: 0;
+    }
 
     &:hover {
+      @include respond-to-min($screen-lg) {
 
-      .lang-dropdown {
-        background: #f8f8f8;
-        pointer-events: all;
-      }
+        .lang-dropdown {
+          pointer-events: all;
+          background: #f8f8f8;
+        }
 
-      .lang-label {
-        opacity: 1;
-        pointer-events: all;
+        .lang-label {
+          opacity: 1;
+          pointer-events: all;
+        }
       }
     }
   }
@@ -151,6 +291,10 @@ header {
     flex-flow: column nowrap;
     margin-left: auto;
     pointer-events: none;
+
+    @include respond-to-max($screen-sm) {
+      margin-right: -10px;
+    }
   }
 
   &-icon {
@@ -159,6 +303,10 @@ header {
     right: 32px;
     font-size: 10px;
     margin-top: -5px;
+
+    @include respond-to-max($screen-sm) {
+      right: -5px;
+    }
   }
 
   &-label {
@@ -170,6 +318,7 @@ header {
     letter-spacing: -0.04em;
     color: #111;
     padding: 16px 50px 16px 55px;
+    height: 54px;
     display: flex;
     align-items: center;
     position: relative;
@@ -193,6 +342,18 @@ header {
       opacity: 1;
       order: -1;
       font-weight: 600;
+    }
+
+    @include respond-to-max($screen-sm) {
+      padding-right: 0;
+
+      img {
+        left: 10px;
+      }
+
+      span {
+        display: none;
+      }
     }
   }
 }

@@ -2,6 +2,10 @@
 // Base
 // --------------------------------------------------
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -49,6 +53,12 @@ body {
   @include respond-to-min($screen-lg) {
     width: $screen-lg;
     padding: 0 15px;
+  }
+}
+
+.mobile-only {
+  @include respond-to-min($screen-sm) {
+    display: none;
   }
 }
 

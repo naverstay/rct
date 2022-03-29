@@ -1,0 +1,119 @@
+//
+// Portfolio
+// --------------------------------------------------
+
+.portfolio {
+  padding: 62px 0;
+  position: relative;
+
+  &-title {
+    @extend %section_title;
+    letter-spacing: 0.01em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &-item {
+    border-radius: 8px;
+    padding: 32px 24px 0;
+    margin-bottom: 20px;
+
+    @include respond-to-max($screen-lg) {
+      &.__gray {
+        background: #f2f3f5;
+      }
+      &.__pink {
+        background: #fff0f0;
+      }
+      &.__yellow {
+        background: #f9f3e8;
+      }
+    }
+
+    @include respond-to-min($screen-lg) {
+      margin-bottom: 36px;
+
+      &.__gray {
+        .portfolio-item__preview {
+          background: #f2f3f5;
+        }
+      }
+      &.__pink {
+        .portfolio-item__preview {
+          background: #fff0f0;
+        }
+      }
+      &.__yellow {
+        .portfolio-item__preview {
+          background: #f9f3e8;
+        }
+      }
+    }
+
+    &__preview {
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      @include respond-to-min($screen-lg) {
+        border-radius: 8px;
+        overflow: hidden;
+      }
+    }
+
+    &__caption {
+      font-family: 'Craftwork Grotesk', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: -0.04em;
+      color: #111;
+      margin-bottom: 8px;
+
+      @include respond-to-min($screen-sm) {
+        font-size: 21px;
+        line-height: 25px;
+        margin-bottom: 12px;
+      }
+
+      @include respond-to-min($screen-lg) {
+        font-size: 32px;
+        line-height: 38px;
+        margin-bottom: 16px;
+      }
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: -0.04em;
+      color: rgba(0, 0, 0, .5);
+      margin-bottom: 24px;
+
+      @include respond-to-min($screen-sm) {
+        font-size: 14px;
+        line-height: 21px;
+      }
+
+      @include respond-to-min($screen-lg) {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+
+    &__tags {
+
+    }
+
+  }
+
+  @include respond-to-min($screen-sm) {
+    padding: 72px 0;
+  }
+
+  @include respond-to-min($screen-lg) {
+    padding: 80px 0;
+  }
+}

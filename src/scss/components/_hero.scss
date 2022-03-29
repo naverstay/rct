@@ -22,7 +22,6 @@
   }
 
   &-image {
-
     svg {
       display: inline-block;
       vertical-align: top;
@@ -43,9 +42,15 @@
     color: #111;
     margin-bottom: 30px;
 
+    @include respond-to-max($screen-sm) {
+      margin-top: 10px;
+      margin-bottom: 12px;
+    }
+
     @include respond-to-min($screen-sm) {
       font-size: 36px;
       line-height: 43px;
+      margin-bottom: 18px;
     }
 
     @include respond-to-min($screen-lg) {
@@ -63,7 +68,11 @@
     line-height: 24px;
     letter-spacing: -0.04em;
     color: #111;
-    margin-bottom: 46px;
+    margin-bottom: 35px;
+
+    @include respond-to-min($screen-sm) {
+      margin-bottom: 20px;
+    }
 
     @include respond-to-min($screen-lg) {
       font-size: 21px;
@@ -75,6 +84,16 @@
     .btn,
     .input {
       width: 100%;
+    }
+
+    @include respond-to-max($screen-lg) {
+      .form-cell {
+        margin-bottom: 10px;
+      }
+    }
+
+    @include respond-to-max($screen-sm) {
+      padding-bottom: 35px;
     }
 
     @include respond-to-min($screen-lg) {
@@ -95,22 +114,23 @@
   }
 
   &-content {
-
-
     @include respond-to-min($screen-sm) {
       width: 49%;
+      flex: 1 0 auto;
+    }
+    @include respond-to-min($screen-lg) {
       padding-top: 30px;
     }
-
   }
 
   @include respond-to-min($screen-sm) {
-    padding: 40px 0;
-  }
-
-  @include respond-to-min($screen-lg) {
+    padding: 30px 0;
     display: flex;
     flex-flow: row-reverse;
     justify-content: space-between;
+  }
+
+  @include respond-to-min($screen-lg) {
+    padding: 40px 0;
   }
 }

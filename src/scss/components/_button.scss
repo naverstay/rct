@@ -7,8 +7,9 @@
   transition: 0.2s ease-in-out;
   font-family: $font-family-base;
   cursor: pointer;
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   vertical-align: middle;
   touch-action: manipulation;
   white-space: nowrap;

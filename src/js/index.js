@@ -2,7 +2,6 @@ import $ from 'jquery';
 import 'waypoints/lib/noframework.waypoints.min.js';
 import Swiper from 'swiper';
 import lottie from 'lottie-web';
-//import animationData from '../../src/lottie/hero.json';
 import AWN from 'awesome-notifications/dist';
 
 let serviceSwiper;
@@ -56,6 +55,54 @@ let updateNav = (id, prev) => {
         window.onscroll = function () {
           checkWindowScroll()
         };
+
+        $('.js-mobile-menu').on('click', function () {
+          $body.toggleClass('__open-menu');
+
+          return false;
+        });
+
+        $('.js-lang-open').on('click', function () {
+          if (window.outerWidth < 1230) {
+            let lang = $('.js-lang-modal');
+            if (lang.length) {
+              let options = {
+                replacements: {
+                  modal: {
+                    'Class name': 'DOM Class'
+                  }
+                }
+              };
+              notifier.modal(
+                lang.html(),
+                'lang-modal',
+                options
+              )
+            }
+          }
+
+          return false;
+        });
+
+        $('.js-feedback-open').on('click', function () {
+          let feedback = $('.js-feedback-modal');
+          if (feedback.length) {
+            let options = {
+              replacements: {
+                modal: {
+                  'Class name': 'DOM Class'
+                }
+              }
+            };
+            notifier.modal(
+              feedback.html(),
+              'feedback-modal',
+              options
+            )
+          }
+
+          return false;
+        });
 
         $('.nav-link').each(function (ind, el) {
           $(this).on('click', (e) => {
@@ -126,29 +173,16 @@ let updateNav = (id, prev) => {
 
         let heroAnimationElement = $('#hero_animation_element');
 
-        //console.log('animationData', heroAnimationElement, animationData);
-
         if (heroAnimationElement.length) {
-          //const heroAnimation = lottie.loadAnimation({
-          //  container: heroAnimationElement[0],
-          //  renderer: 'svg',
-          //  loop: true,
-          //  autoplay: true,
-          //  animationData
-          //});
-
           const heroAnimation = lottie.loadAnimation({
-            container: heroAnimationElement[0], // the dom element that will contain the animation
+            container: heroAnimationElement[0],
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: '../lottie/hero.json' // the path to the animation json
+            path: '../lottie/hero.json'
           });
 
-          console.log('heroAnimation', heroAnimation);
-
           heroAnimation.goToAndPlay(0, true);
-
         }
       },
       finalize: function () {
