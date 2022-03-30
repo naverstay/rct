@@ -24,7 +24,7 @@ function getScrollTop() {
 }
 
 let updateNav = (id, prev) => {
-  let activeLink = $('.nav-link[href="#' + id + '"]')
+  let activeLink = $('.header .nav-link[href="#' + id + '"]')
 
   if (activeLink.length) {
     let parent = activeLink.parent();

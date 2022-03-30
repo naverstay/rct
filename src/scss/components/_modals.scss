@@ -54,6 +54,8 @@
 }
 
 #awn-popup-wrapper .awn-popup-body {
+  max-width: 88vw;
+
   &.awn-popup-lang-modal {
     width: 366px;
   }

@@ -62,6 +62,12 @@ body {
   }
 }
 
+.mobile-hide {
+  @include respond-to-max($screen-sm) {
+    display: none;
+  }
+}
+
 /* width */
 
 ::-webkit-scrollbar {

@@ -115,7 +115,7 @@ $item_hover_time: .5s;
     }
 
     @include respond-to-min($screen-lg) {
-      padding: 50px 32px;
+      padding: 50px 32px 24px;
     }
 
     &__icon {
@@ -123,8 +123,8 @@ $item_hover_time: .5s;
       position: relative;
       margin-bottom: 22px;
 
-      img {
-
+      @include respond-to-min($screen-lg) {
+        margin-bottom: 16px;
       }
     }
 
@@ -153,6 +153,7 @@ $item_hover_time: .5s;
       @include respond-to-min($screen-lg) {
         font-size: 18px;
         line-height: 28px;
+        min-height: 6.5em;
       }
     }
 
@@ -168,8 +169,13 @@ $item_hover_time: .5s;
     &:hover {
       .service-btn {
         &::before {
-          width: 100vw;
-          height: 100vw;
+          width: 200vw;
+          height: 200vw;
+
+          @include respond-to-min($screen-sm) {
+            width: 100vw;
+            height: 100vw;
+          }
         }
       }
 
@@ -193,7 +199,7 @@ $item_hover_time: .5s;
     align-items: center;
     justify-content: center;
     border-radius: 24px;
-    padding: 0 20px;
+    padding: 0 10px;
     height: 48px;
     min-width: 48px;
     font-size: 16px;
@@ -232,6 +238,7 @@ $item_hover_time: .5s;
       border-radius: 33px;
       height: 66px;
       min-width: 66px;
+      padding: 0 20px;
     }
   }
 
@@ -266,7 +273,7 @@ $item_hover_time: .5s;
   }
 
   @include respond-to-min($screen-lg) {
-    padding: 80px 30px 80px 0;
+    padding: 80px 30px 70px 0;
     grid-template-columns: 7fr 4fr;
     grid-column-gap: 50px;
   }
