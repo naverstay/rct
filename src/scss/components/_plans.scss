@@ -1,0 +1,215 @@
+//
+// Plans
+// --------------------------------------------------
+
+@-webkit-keyframes pulse {
+  from {
+    width: 100%;
+    height: 100%;
+  }
+
+  60% {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes pulse {
+  from {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+
+  60% {
+    width: 100vw;
+    height: 100vw;
+    opacity: 0;
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+.plans {
+  padding: 50px 0 48px;
+  background: #ff6d43;
+  overflow: hidden;
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &-title {
+    font-family: 'Craftwork Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 44px;
+    letter-spacing: -.07em;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to-max($screen-sm) {
+      text-align: center;
+    }
+
+    @include respond-to-min($screen-sm) {
+      font-size: 32px;
+      line-height: 48px;
+      letter-spacing: -.105em;
+    }
+
+    @include respond-to-min($screen-lg) {
+      font-size: 48px;
+      line-height: 64px;
+      letter-spacing: -.08em;
+    }
+  }
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    position: relative;
+
+    @include respond-to-min($screen-sm) {
+      width: 164px;
+      height: 164px;
+      transform: translateY(10px);
+    }
+
+    @include respond-to-min($screen-lg) {
+      width: 200px;
+      height: 200px;
+      transform: none;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      transform: translate(-50%, -50%);
+      background: #111;
+      transition: background .5s, width .5s, height .5s;
+    }
+
+    &__text {
+      position: relative;
+      z-index: 2;
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #fff;
+      transition: color .5s;
+    }
+
+    &__pulse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.1);
+        animation-name: pulse;
+        animation-duration: 6s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+      }
+
+      &::after {
+        animation-delay: 1.5s;
+      }
+
+      &::before {
+        animation-delay: .5s;
+      }
+    }
+
+    &__holder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include respond-to-max($screen-sm) {
+        padding-top: 65px;
+        padding-bottom: 30px;
+      }
+
+      @include respond-to-min($screen-lg) {
+        padding-right: 60px;
+      }
+    }
+  }
+
+  &:hover {
+
+    .plans-btn {
+
+      .plans-btn__text {
+        color: #111;
+      }
+
+      &::after {
+        background: #ff6d43;
+      }
+
+      &::before {
+        width: 200vw;
+        height: 200vw;
+      }
+    }
+  }
+
+  @include respond-to-min($screen-sm) {
+    padding: 55px 0 75px;
+
+    .container {
+      display: grid;
+      grid-template-columns: auto 315px;
+      align-items: center;
+    }
+  }
+
+  @include respond-to-min($screen-lg) {
+    padding: 80px 0;
+
+    .container {
+      grid-template-columns: auto 535px;
+    }
+  }
+}
