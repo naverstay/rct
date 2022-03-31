@@ -1,13 +1,19 @@
 import $ from 'jquery';
 import 'waypoints/lib/noframework.waypoints.min.js';
-import Swiper from 'swiper';
+import Swiper, {Navigation} from 'swiper';
+
 import lottie from 'lottie-web';
 import AWN from 'awesome-notifications/dist';
 
 let serviceSwiper;
+let teamSwiper;
 
 const isMobile = function () {
   return getComputedStyle(document.body, ':before').getPropertyValue('content') === '\"mobile\"';
+}
+
+const isDesktop = function () {
+  return getComputedStyle(document.body, ':before').getPropertyValue('content') === '\"desktop\"';
 }
 
 // Set global options
@@ -35,6 +41,59 @@ let updateNav = (id, prev) => {
 
     parent.addClass('__active').siblings().removeClass('__active')
   }
+}
+
+let serviceSlider = () => {
+  const breakpoint = window.matchMedia('(min-width:834px)');
+
+  const breakpointChecker = function (mobile) {
+    if (mobile) {
+      serviceSwiper = new Swiper('.js-service-swiper', {
+        // Optional parameters
+        loop: true
+      });
+    } else {
+      if (serviceSwiper) {
+        serviceSwiper.destroy();
+      }
+    }
+
+    return false;
+  };
+
+  breakpoint.addEventListener("change", (e) => {
+    breakpointChecker(!e.matches);
+  });
+
+  breakpointChecker(isMobile());
+}
+
+let teamSlider = () => {
+  teamSwiper = new Swiper('.js-team-swiper', {
+    // Optional parameters
+    modules: [Navigation],
+    loop: true,
+    spaceBetween: 16,
+
+    navigation: {
+      enabled: true,
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    slidesPerView: 1,
+    breakpoints: {
+      // when window width is >= 834px
+      834: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      // when window width is >= 1230px
+      1230: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      }
+    }
+  });
 }
 
 (function ($) {
@@ -152,28 +211,9 @@ let updateNav = (id, prev) => {
           })
         });
 
-        const breakpoint = window.matchMedia('(min-width:834px)');
+        serviceSlider();
 
-        const breakpointChecker = function (mobile) {
-          if (mobile) {
-            serviceSwiper = new Swiper('.swiper', {
-              // Optional parameters
-              loop: true
-            });
-          } else {
-            if (serviceSwiper) {
-              serviceSwiper.destroy();
-            }
-          }
-
-          return false;
-        };
-
-        breakpoint.addEventListener("change", (e) => {
-          breakpointChecker(!e.matches);
-        });
-
-        breakpointChecker(isMobile());
+        teamSlider();
 
         let heroAnimationElement = $('#hero_animation_element');
 
