@@ -32,28 +32,34 @@ $item_hover_time: .5s;
 
     @include respond-to-min($screen-sm) {
       letter-spacing: -.05em;
+      margin-bottom: 50px;
     }
 
+    @include respond-to-min($screen-lg) {
+      margin-bottom: 30px;
+    }
   }
 
   &-contact {
 
     &__text {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 21px;
       letter-spacing: -0.35px;
       color: #7d7f8e;
+      margin-bottom: 12px;
+      margin-top: -5px;
 
       @include respond-to-max($screen-sm) {
-        margin-bottom: 16px;
-        font-size: 14px;
-        line-height: 21px;
-      }
-
-      @include respond-to-min($screen-sm) {
-        margin-bottom: 12px;
         font-size: 16px;
         line-height: 21px;
+        margin-top: 0;
+      }
+
+      @include respond-to-min($screen-lg) {
+        font-size: 16px;
+        line-height: 21px;
+        margin-top: 0;
       }
     }
 
@@ -111,7 +117,7 @@ $item_hover_time: .5s;
     overflow: hidden;
 
     @include respond-to-min($screen-sm) {
-      padding: 41px 20px;
+      padding: 30px 20px;
     }
 
     @include respond-to-min($screen-lg) {
@@ -133,6 +139,18 @@ $item_hover_time: .5s;
       transition: color $item_hover_time;
       position: relative;
       z-index: 1;
+
+      @include respond-to-min($screen-sm) {
+        font-size: 21px;
+        line-height: 25px;
+        margin-bottom: 10px;
+      }
+
+      @include respond-to-min($screen-lg) {
+        font-size: 32px;
+        line-height: 38px;
+        margin-bottom: 16px;
+      }
     }
 
     &__description {
@@ -161,7 +179,7 @@ $item_hover_time: .5s;
       height: 50px;
       margin-top: auto;
 
-      @include respond-to-min($screen-sm) {
+      @include respond-to-min($screen-lg) {
         height: 80px;
       }
     }
@@ -234,7 +252,7 @@ $item_hover_time: .5s;
       z-index: 1;
     }
 
-    @include respond-to-min($screen-sm) {
+    @include respond-to-min($screen-lg) {
       border-radius: 33px;
       height: 66px;
       min-width: 66px;
@@ -265,7 +283,7 @@ $item_hover_time: .5s;
   }
 
   @include respond-to-min($screen-sm) {
-    padding: 72px 0;
+    padding: 72px 0 55px;
     display: grid;
     grid-template-columns: 8fr 4fr;
     grid-column-gap: 30px;

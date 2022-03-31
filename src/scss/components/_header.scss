@@ -287,10 +287,11 @@ header {
   &-block {
     position: relative;
     height: 54px;
-    margin: -10px -24px -10px 10px;
+    margin: -10px 0 -10px 10px;
 
     @include respond-to-min($screen-sm) {
       margin-left: 10px;
+      margin-right: -24px;
     }
 
     @include respond-to-min($screen-lg) {
