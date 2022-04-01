@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import 'waypoints/lib/noframework.waypoints.min.js';
-import Swiper, {Navigation} from 'swiper';
+import Swiper, {Navigation, Pagination} from 'swiper';
 
 import lottie from 'lottie-web';
 import AWN from 'awesome-notifications/dist';
@@ -74,11 +74,31 @@ let teamSlider = () => {
     modules: [Navigation],
     loop: true,
     spaceBetween: 16,
+    on: {
+      init: () => {
+        $('.js-team-member').on('click', function () {
+          let target = $($(this).attr('data-member'));
 
+          if (target.length) {
+            let options = {};
+            notifier.modal(
+              target.html(),
+              'team-modal',
+              options
+            )
+          }
+
+          return false;
+        });
+      }
+    },
     navigation: {
       enabled: true,
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      enabled: true,
     },
     slidesPerView: 1,
     breakpoints: {
@@ -125,13 +145,7 @@ let teamSlider = () => {
           if (window.outerWidth < 1230) {
             let lang = $('.js-lang-modal');
             if (lang.length) {
-              let options = {
-                replacements: {
-                  modal: {
-                    'Class name': 'DOM Class'
-                  }
-                }
-              };
+              let options = {};
               notifier.modal(
                 lang.html(),
                 'lang-modal',
@@ -150,13 +164,7 @@ let teamSlider = () => {
           if (feedback.length) {
             feedback.find('#feedback-theme').attr('value', theme);
 
-            let options = {
-              replacements: {
-                modal: {
-                  'Class name': 'DOM Class'
-                }
-              }
-            };
+            let options = {};
             notifier.modal(
               feedback.html(),
               'feedback-modal',
