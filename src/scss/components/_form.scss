@@ -8,13 +8,21 @@
   width: 100%;
   background: #f8f8f8;
   border-radius: 5px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   letter-spacing: -.025em;
+
+  &.is-invalid {
+    border: 2px solid #f52c44 !important;
+
+    ~ .form-cell__icon {
+      color: #f52c44 !important;
+    }
+  }
 
   &-size_50 {
     font-size: 16px;
     height: 50px;
-    padding: 12px 24px;
+    padding: 11px 23px;
 
     &.__icon {
       padding-left: 54px;
@@ -79,6 +87,10 @@
       transform: translateY(-50%);
     }
   }
+}
+
+.just-validate-error-label {
+  display: none !important;
 }
 
 ::-webkit-input-placeholder {

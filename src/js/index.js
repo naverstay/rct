@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import JustValidate from 'just-validate';
 import 'waypoints/lib/noframework.waypoints.min.js';
 import Swiper, {Navigation, Pagination} from 'swiper';
 
@@ -68,6 +69,84 @@ let serviceSlider = () => {
   breakpointChecker(isMobile());
 }
 
+let heroValidation = () => {
+  const validation = new JustValidate('#hero-discuss', {
+    errorFieldCssClass: 'is-invalid'
+  });
+
+  validation
+    .addField('#hero-email', [
+      {
+        rule: 'required',
+        errorMessage: 'Field is required'
+      },
+      {
+        rule: 'email',
+        errorMessage: 'Email is invalid!'
+      }
+    ]);
+}
+
+let footerValidation = () => {
+  const validation = new JustValidate('#footer-contacts', {
+    errorFieldCssClass: 'is-invalid'
+  });
+
+  validation
+    .addField('#contact-msg', [
+      {
+        rule: 'required',
+        errorMessage: 'Field is required'
+      }
+    ])
+    .addField('#contact-name', [
+      {
+        rule: 'required',
+        errorMessage: 'Field is required'
+      }
+    ])
+    .addField('#contact-email', [
+      {
+        rule: 'required',
+        errorMessage: 'Field is required'
+      },
+      {
+        rule: 'email',
+        errorMessage: 'Email is invalid!'
+      }
+    ]);
+}
+
+let feedbackValidation = () => {
+  const validation = new JustValidate('#feedback-form-modal', {
+    errorFieldCssClass: 'is-invalid'
+  });
+
+  validation
+    .addField('#feedback-msg', [
+      {
+        rule: 'required',
+        errorMessage: 'Field is required'
+      }
+    ])
+    .addField('#feedback-name', [
+      {
+        rule: 'required',
+        errorMessage: 'Field is required'
+      }
+    ])
+    .addField('#feedback-email', [
+      {
+        rule: 'required',
+        errorMessage: 'Field is required'
+      },
+      {
+        rule: 'email',
+        errorMessage: 'Email is invalid!'
+      }
+    ]);
+}
+
 let teamSlider = () => {
   teamSwiper = new Swiper('.js-team-swiper', {
     // Optional parameters
@@ -101,7 +180,7 @@ let teamSlider = () => {
       enabled: true,
       clickable: true,
       el: '#team-pagination',
-      type: 'bullets',
+      type: 'bullets'
       //renderBullet: function (index, className) {
       //  return '<span class="' + className + '">' + (menu[index]) + '</span>';
       //}
@@ -170,12 +249,20 @@ let teamSlider = () => {
           if (feedback.length) {
             feedback.find('#feedback-theme').attr('value', theme);
 
-            let options = {};
+            let options = {
+              replacements: {
+                modal: {
+                  'feedback-form': 'feedback-form-modal'
+                }
+              }
+            };
             notifier.modal(
               feedback.html(),
               'feedback-modal',
               options
-            )
+            );
+
+            feedbackValidation();
           }
 
           return false;
@@ -197,20 +284,30 @@ let teamSlider = () => {
 
         });
 
-        $('#hero-discuss').on('submit', (e) => {
-          e.preventDefault()
+        heroValidation();
 
-          // Set custom options for next call if needed, it will override globals
-          let nextCallOptions = {
-            //durations: {
-            //  success: 0
-            //},
-            labels: {
-              success: "Отправлено"
-            }
-          };
-          // Call one of available functions
-          notifier.success('Заявка была успешно отправлена. Мы ответим вам на указанный Email адрес в течение одного рабочего дня.', nextCallOptions)
+        footerValidation();
+
+        $('#hero-discuss').on('submit', (e) => {
+          e.preventDefault();
+
+          let errors = $(e.target).find('.is-invalid');
+
+          if (!errors.length) {
+            // Set custom options for next call if needed, it will override globals
+            let nextCallOptions = {
+              //durations: {
+              //  success: 0
+              //},
+              labels: {
+                success: "Отправлено"
+              }
+            };
+            // Call one of available functions
+            notifier.success('Заявка была успешно отправлена. Мы ответим вам на указанный Email адрес в течение одного рабочего дня.', nextCallOptions);
+
+            e.target.reset();
+          }
 
           return false
         });
