@@ -59,13 +59,13 @@ body {
 
 .mobile-only {
   @include respond-to-min($screen-sm) {
-    display: none;
+    display: none !important;
   }
 }
 
 .mobile-hide {
   @include respond-to-max($screen-sm) {
-    display: none;
+    display: none !important;
   }
 }
 
