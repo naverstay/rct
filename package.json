@@ -19,6 +19,7 @@
     "dependencies": {
         "awesome-notifications": "^3.1.2",
         "jquery": "^3.4.1",
+        "just-validate": "^3.5.1",
         "lottie-web": "^5.9.1",
         "lottie-web-webpack-loader": "^0.0.4",
         "swiper": "^8.0.7",
