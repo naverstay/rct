@@ -19,7 +19,7 @@ const isDesktop = function () {
 // Set global options
 let globalOptions = {
   durations: {
-    global: 100000
+    global: 5000
   }
 }
 // Initialize instance of AWN
@@ -71,11 +71,11 @@ let serviceSlider = () => {
 let teamSlider = () => {
   teamSwiper = new Swiper('.js-team-swiper', {
     // Optional parameters
-    modules: [Navigation],
+    modules: [Navigation, Pagination],
     loop: true,
     spaceBetween: 16,
     on: {
-      init: () => {
+      init: (swp) => {
         $('.js-team-member').on('click', function () {
           let target = $($(this).attr('data-member'));
 
@@ -94,11 +94,17 @@ let teamSlider = () => {
     },
     navigation: {
       enabled: true,
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+      nextEl: '#team-next-btn',
+      prevEl: '#team-prev-btn'
     },
     pagination: {
       enabled: true,
+      clickable: true,
+      el: '#team-pagination',
+      type: 'bullets',
+      //renderBullet: function (index, className) {
+      //  return '<span class="' + className + '">' + (menu[index]) + '</span>';
+      //}
     },
     slidesPerView: 1,
     breakpoints: {
@@ -196,9 +202,9 @@ let teamSlider = () => {
 
           // Set custom options for next call if needed, it will override globals
           let nextCallOptions = {
-            durations: {
-              success: 0
-            },
+            //durations: {
+            //  success: 0
+            //},
             labels: {
               success: "Отправлено"
             }

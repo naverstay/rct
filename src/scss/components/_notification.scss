@@ -5,6 +5,9 @@
 @import '../../node_modules/awesome-notifications/dist/style.css';
 
 .awn-toast {
+  width: 382px;
+  max-width: 93vw;
+
   &.awn-toast-success {
     background: #6ac75a;
 

@@ -37,10 +37,13 @@
       border-radius: 5px;
 
       &.__active {
-        border-color: rgba(17, 17, 17, 0.15);
+        border-color: rgba(17, 17, 17, .15);
         background: #fff;
       }
 
+      span {
+        display: block;
+      }
     }
   }
 
@@ -59,6 +62,33 @@
   margin-top: 75px;
   overflow-y: auto;
 
+  &::before {
+    @extend %pseudo_icon;
+    content: $icon-close;
+    position: fixed;
+    top: 33px;
+    left: 33px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    pointer-events: none;
+
+    @include respond-to-min($screen-sm) {
+      top: 36px;
+      left: 38px;
+      font-size: 20px;
+    }
+
+    @include respond-to-min($screen-lg) {
+      font-size: 26px;
+      right: 50px;
+      top: 50px;
+      left: auto;
+    }
+  }
+
   @include respond-to-min($screen-sm) {
     max-height: calc(100vh - 100px);
     margin-top: 85px;
@@ -73,33 +103,6 @@
   &.awn-popup-team-modal {
     width: 366px;
     padding-top: 8px;
-
-    &::before {
-      @extend %pseudo_icon;
-      content: $icon-close;
-      position: fixed;
-      top: 33px;
-      left: 33px;
-      color: #fff;
-      font-size: 14px;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 2;
-      pointer-events: none;
-
-      @include respond-to-min($screen-sm) {
-        top: 36px;
-        left: 38px;
-        font-size: 20px;
-      }
-
-      @include respond-to-min($screen-lg) {
-        font-size: 26px;
-        right: 50px;
-        top: 50px;
-        left: auto;
-      }
-    }
 
     @include respond-to-min($screen-sm) {
       width: 774px;

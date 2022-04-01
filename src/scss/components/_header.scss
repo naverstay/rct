@@ -126,7 +126,7 @@ header {
 
     .__active & {
       cursor: default;
-      color: rgba(17, 17, 17, .5);
+      color: $gray;
     }
 
     .header & {

@@ -10,6 +10,7 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   overflow-x: hidden;
+  color: #111;
 
   &::before {
     position: absolute;
