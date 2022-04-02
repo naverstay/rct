@@ -88,7 +88,7 @@ let heroValidation = () => {
 }
 
 let footerValidation = () => {
-  const validation = new JustValidate('#footer-contacts', {
+  const validation = new JustValidate('#contacts-form', {
     errorFieldCssClass: 'is-invalid'
   });
 

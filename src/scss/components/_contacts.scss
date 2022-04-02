@@ -1,0 +1,108 @@
+//
+// Contacts
+// --------------------------------------------------
+
+.contacts {
+  background: #111;
+
+  &-top {
+    padding: 48px 0 24px;
+
+    @include respond-to-min($screen-sm) {
+      padding-left: 18px;
+      padding-right: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 30px;
+      align-items: center;
+    }
+
+    @include respond-to-min($screen-lg) {
+      padding: 100px 30px 70px 0;
+    }
+  }
+
+  &-form {
+    background: #fff;
+    padding: 24px 20px 15px;
+    border-radius: 10px;
+
+    .form-cell {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-top: 20px;
+      }
+    }
+
+    @include respond-to-max($screen-sm) {
+      margin: 0 -7px;
+    }
+
+    @include respond-to-min($screen-sm) {
+      margin-left: -20px;
+    }
+
+    @include respond-to-min($screen-lg) {
+      margin-left: auto;
+      width: 445px;
+      padding: 24px 30px 15px;
+    }
+  }
+
+  &-question {
+    margin-bottom: 32px;
+
+    @include respond-to-min($screen-sm) {
+      padding-right: 20px;
+      padding-top: 30px;
+    }
+
+    @include respond-to-min($screen-lg) {
+      padding-right: 80px;
+    }
+
+    &__title {
+      font-family: 'Craftwork Grotesk', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 34px;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 12px;
+
+      @include respond-to-min($screen-sm) {
+        font-size: 48px;
+        line-height: 58px;
+        margin-bottom: 16px;
+      }
+
+      @include respond-to-min($screen-lg) {
+        font-size: 64px;
+        line-height: 64px;
+        margin-bottom: 32px;
+        letter-spacing: -0.045em;
+      }
+    }
+
+    &__tip {
+      font-size: 16px;
+      line-height: 24px;
+      color: #fff;
+      letter-spacing: -0.04em;
+
+      @include respond-to-min($screen-sm) {
+        font-size: 18px;
+        line-height: 32px;
+        color: rgba(255, 255, 255, .65);
+      }
+
+      @include respond-to-min($screen-lg) {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+  }
+
+}
