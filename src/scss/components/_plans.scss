@@ -68,13 +68,12 @@
     @include respond-to-min($screen-sm) {
       font-size: 32px;
       line-height: 48px;
-      letter-spacing: -.105em;
     }
 
     @include respond-to-min($screen-lg) {
       font-size: 48px;
       line-height: 64px;
-      letter-spacing: -.08em;
+      letter-spacing: -.048em;
     }
   }
 
@@ -123,6 +122,11 @@
       letter-spacing: -0.04em;
       color: #fff;
       transition: color .5s;
+
+      @include respond-to-min-max($screen-sm, $screen-lg) {
+        font-size: 18px;
+        line-height: 21px;
+      }
     }
 
     &__pulse {

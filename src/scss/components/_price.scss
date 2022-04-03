@@ -7,11 +7,9 @@
 
   &-title {
     font-family: 'Craftwork Grotesk', sans-serif;
-    font-style: normal;
-    font-weight: 700;
     font-size: 28px;
     line-height: 34px;
-    letter-spacing: -.02em;
+    letter-spacing: .015em;
     color: #111;
     margin-bottom: 12px;
 
@@ -23,7 +21,6 @@
     @include respond-to-min($screen-lg) {
       font-size: 48px;
       line-height: 56px;
-      letter-spacing: -.06em;
     }
   }
 
@@ -138,6 +135,11 @@
       .btn {
         width: 100%;
 
+        @include respond-to-min-max($screen-sm, $screen-lg) {
+          height: 46px;
+          font-size: 16px;
+        }
+
         @include respond-to-max($screen-sm) {
           font-size: 14px;
           line-height: 19px;
@@ -173,6 +175,10 @@
           top: 0;
           left: 3px;
         }
+      }
+
+      @include respond-to-min-max($screen-sm, $screen-lg) {
+        padding-bottom: 7px;
       }
 
       @include respond-to-max($screen-lg) {
@@ -227,7 +233,7 @@
   }
 
   @include respond-to-min($screen-lg) {
-    padding: 80px 30px 100px 0;
+    padding: 80px 30px 95px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }

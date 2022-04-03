@@ -3,14 +3,16 @@
 // --------------------------------------------------
 
 .portfolio {
-  padding: 62px 0 52px;
+  padding: 66px 0 44px;
   position: relative;
 
   &-title {
     @extend %section_title;
-    letter-spacing: 0.01em;
+    letter-spacing: -.02em;
     margin-bottom: 30px;
     text-align: center;
+
+
   }
 
   &-content {
@@ -109,6 +111,12 @@
 
     &__caption {
       @extend %item_title;
+      letter-spacing: -0.01em;
+      font-weight: 700;
+
+      @include respond-to-max($screen-sm) {
+        margin-bottom: 14px;
+      }
 
       @include respond-to-min($screen-sm) {
         font-size: 24px;
@@ -119,7 +127,6 @@
       @include respond-to-min($screen-lg) {
         font-size: 32px;
         line-height: 38px;
-        margin-bottom: 16px;
       }
     }
 
@@ -153,13 +160,7 @@
       line-height: 24px;
       letter-spacing: -0.04em;
       color: rgba(0, 0, 0, .5);
-      margin-bottom: 24px;
-
-      @include respond-to-min($screen-sm) {
-        font-size: 16px;
-        line-height: 24px;
-        margin-bottom: 20px;
-      }
+      margin-bottom: 20px;
 
       @include respond-to-min($screen-lg) {
         font-size: 18px;
@@ -198,6 +199,7 @@
 
       @include respond-to-min($screen-lg) {
         padding-top: 24px;
+        padding-bottom: 16px;
       }
     }
 

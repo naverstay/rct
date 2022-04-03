@@ -24,7 +24,7 @@
 
   &-form {
     background: #fff;
-    padding: 24px 20px 15px;
+    padding: 24px 20px 10px;
     border-radius: 10px;
 
     .form-cell {
@@ -32,6 +32,12 @@
 
       &:last-child {
         margin-top: 20px;
+      }
+    }
+
+    @include respond-to-min-max($screen-sm, $screen-lg) {
+      .btn {
+        font-size: 16px;
       }
     }
 
@@ -68,7 +74,7 @@
       font-weight: 600;
       font-size: 28px;
       line-height: 34px;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.02em;
       color: #fff;
       margin-bottom: 12px;
 
@@ -82,7 +88,7 @@
         font-size: 64px;
         line-height: 64px;
         margin-bottom: 32px;
-        letter-spacing: -0.045em;
+        letter-spacing: -0.015em;
       }
     }
 

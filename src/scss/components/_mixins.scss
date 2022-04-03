@@ -2,6 +2,12 @@
 // Mixins
 // --------------------------------------------------
 
+@mixin respond-to-min-max($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max - 1) {
+    @content;
+  }
+}
+
 @mixin respond-to-max($custom) {
   @media only screen and (max-width: $custom - 1) {
     @content;
@@ -65,7 +71,6 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
-  letter-spacing: -0.04em;
   color: #111;
   margin-bottom: 10px;
 }

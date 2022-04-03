@@ -11,7 +11,8 @@ header {
   background: #fff;
 
   .__scroll & {
-    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+    background: #fcfcfc;
+    border-bottom: 1px solid #eee;
   }
 }
 
@@ -37,7 +38,8 @@ header {
 
   @include respond-to-min($screen-lg) {
     .__scroll & {
-      padding: 3px 0;
+      padding: 15px 0;
+
     }
 
     > .logo {
@@ -53,7 +55,8 @@ header {
   font-weight: bold;
   font-size: 19px;
   line-height: 23px;
-  letter-spacing: -0.475022px;
+  //letter-spacing: -0.475022px;
+  letter-spacing: -0.04em;
   color: #111;
   display: flex;
   align-items: center;
@@ -305,6 +308,7 @@ header {
         .lang-dropdown {
           pointer-events: all;
           background: #f8f8f8;
+          border: 1px solid #eee;
         }
 
         .lang-label {
@@ -321,6 +325,7 @@ header {
     flex-flow: column nowrap;
     margin-left: auto;
     pointer-events: none;
+    border: 1px solid transparent;
 
     @include respond-to-max($screen-sm) {
       margin-right: -10px;
@@ -347,7 +352,7 @@ header {
     line-height: 20px;
     letter-spacing: -0.04em;
     color: #111;
-    padding: 16px 50px 16px 55px;
+    padding: 16px 50px 16px 60px;
     height: 54px;
     display: flex;
     align-items: center;
@@ -363,7 +368,7 @@ header {
 
     img {
       position: absolute;
-      left: 20px;
+      left: 24px;
       top: 50%;
       transform: translateY(-50%);
     }

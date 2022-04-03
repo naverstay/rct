@@ -247,12 +247,11 @@ let teamSlider = () => {
           let feedback = $('.js-feedback-modal');
 
           if (feedback.length) {
-            feedback.find('#feedback-theme').attr('value', theme);
-
             let options = {
               replacements: {
                 modal: {
-                  'feedback-form': 'feedback-form-modal'
+                  'feedback-form': 'feedback-form-modal',
+                  'feedback-theme': 'feedback-theme" value="' + theme
                 }
               }
             };

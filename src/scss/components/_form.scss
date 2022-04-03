@@ -26,6 +26,10 @@
 
     &.__icon {
       padding-left: 54px;
+
+      @include respond-to-min-max($screen-sm, $screen-lg) {
+        padding-left: 42px;
+      }
     }
 
     @at-root textarea#{&} {
@@ -54,6 +58,10 @@
       margin-top: -12px;
     }
   }
+
+  @include respond-to-min-max($screen-sm, $screen-lg) {
+    font-size: 14px;
+  }
 }
 
 .form {
@@ -67,6 +75,11 @@
       line-height: 1;
       color: rgba(0, 0, 0, .5);
       transition: color .3s;
+
+      @include respond-to-min-max($screen-sm, $screen-lg) {
+        left: 16px;
+        font-size: 20px;
+      }
     }
 
     &__label {
