@@ -53,10 +53,9 @@
   &-title {
     font-family: 'Craftwork Grotesk', sans-serif;
     font-style: normal;
-    font-weight: 600;
     font-size: 28px;
     line-height: 44px;
-    letter-spacing: -.07em;
+    letter-spacing: -.04em;
     color: #fff;
     position: relative;
     z-index: 1;
@@ -73,7 +72,7 @@
     @include respond-to-min($screen-lg) {
       font-size: 48px;
       line-height: 64px;
-      letter-spacing: -.048em;
+      letter-spacing: -.018em;
     }
   }
 
