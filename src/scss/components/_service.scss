@@ -117,6 +117,7 @@ $item_hover_time: .5s;
   }
 
   &-item {
+    cursor: pointer;
     background: #fff;
     display: flex;
     flex-flow: column nowrap;
