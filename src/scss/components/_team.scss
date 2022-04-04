@@ -278,6 +278,7 @@
       @include respond-to-min($screen-lg) {
         font-size: 14px;
         line-height: 18px;
+        padding-top: 4px;
       }
     }
 
@@ -379,6 +380,12 @@
           &::before {
             left: 8px;
           }
+        }
+      }
+
+      @include respond-to-min($screen-lg) {
+        &:first-child {
+          margin-top: 10px;
         }
       }
     }

@@ -7,6 +7,7 @@
 
   &-underline {
     position: relative;
+    display: inline-block;
 
     &::before {
       content: '';
@@ -18,6 +19,10 @@
       height: 30px;
       background: url(../images/public/underline.svg) no-repeat 0 0;
       background-size: contain;
+
+      @include respond-to-max($screen-sm) {
+        margin-top: -6px;
+      }
     }
   }
 
@@ -73,7 +78,7 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -0.04em;
-    color: #111;
+    color: rgba(17, 17, 17, .5);
     margin-bottom: 35px;
 
     @include respond-to-min($screen-sm) {

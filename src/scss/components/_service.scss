@@ -199,29 +199,31 @@ $item_hover_time: .5s;
       }
     }
 
-    &:hover {
-      .service-btn {
-        &::before {
-          width: 200vw;
-          height: 200vw;
+    @include respond-to-min($screen-lg) {
+      &:hover {
+        .service-btn {
+          &::before {
+            width: 200vw;
+            height: 200vw;
 
-          @include respond-to-min($screen-sm) {
-            width: 100vw;
-            height: 100vw;
+            @include respond-to-min($screen-sm) {
+              width: 100vw;
+              height: 100vw;
+            }
           }
         }
-      }
 
-      .service-btn__text {
-        display: block;
-      }
+        .service-btn__text {
+          display: block;
+        }
 
-      .service-btn__icon {
-        margin-left: 15px;
-      }
+        .service-btn__icon {
+          margin-left: 15px;
+        }
 
-      * {
-        color: #fff;
+        * {
+          color: #fff;
+        }
       }
     }
   }

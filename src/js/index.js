@@ -167,6 +167,10 @@ let teamSlider = () => {
             )
           }
 
+          $('#awn-popup-wrapper .awn-popup-body').scroll(function (event) {
+            event.stopPropagation();
+          });
+
           return false;
         });
       }
@@ -242,7 +246,7 @@ let teamSlider = () => {
           return false;
         });
 
-        $('.js-service-item').on('click', function () {
+        $('.js-feedback-open').on('click', function () {
           let theme = $(this).attr('data-theme') || '';
           let feedback = $('.js-feedback-modal');
 
@@ -251,7 +255,7 @@ let teamSlider = () => {
               replacements: {
                 modal: {
                   'feedback-form': 'feedback-form-modal',
-                  'feedback-theme': 'feedback-theme" value="' + theme
+                  'feedback-theme': 'feedback-theme' + (theme ? '" value="' + theme : '')
                 }
               }
             };
